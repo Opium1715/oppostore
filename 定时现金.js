@@ -8,28 +8,16 @@ var task = timers.addDisposableTask({
     date: millis,
 });
 
-let inform = require("./module-inform.js");
-
 
 var storage = storages.create("OPPO商城小铺");
 
 
-var UA = storage.get("ua");
-var mypassword = storage.get("password");
-http.__okhttp__.setTimeout(10000);
+var UA = 
+var COOKIE=
 
-if(storage.get("ck")!=null){
-if(storage.get("ck").indexOf('Op_lpvt_f18367c55fd7569d9000cd9986846577=')!=-1&&storage.get("ck").indexOf('Op_lvt_f18367c55fd7569d9000cd9986846577=')!=-1){
-var time1=storage.get("ck").split("Op_lpvt_f18367c55fd7569d9000cd9986846577=")[1].split(';')[0];
-var time2=storage.get("ck").split("Op_lvt_f18367c55fd7569d9000cd9986846577=")[1].split(';')[0];
-var COOKIE=storage.get("ck").replace(time1,Math.round(new Date().getTime()/1000)).replace(time2,Math.round(new Date().getTime()/1000-10000)+','+Math.round(new Date().getTime()/1000));
-}else{
-var COOKIE=storage.get("ck");
-}
-}
+    
+    
 
-storage.put("cashplace", path);
-storage.put("cashmillis", task.millis);
 var headers = {
     "Host": "store.oppo.com",
     "Connection": "keep-alive",
@@ -49,13 +37,12 @@ var headers = {
 
 
     
-if(storage.get("ck")!=null){  
+if(COOKIE!=null){  
 main()
 }else{
-  inform(2,"错误提示","请登录帐号");
-        storage.put("现金后台", "[关闭]");
-        删除任务("cashplace");  
+ 删除任务("cashplace");  
 }
+
 function main() {
     
 
@@ -77,8 +64,6 @@ function main() {
     }else if(ret['code']==1000001){
         award();
     }else{
-        inform(2,"错误提示","请登录帐号");
-        storage.put("现金后台", "[关闭]");
         删除任务("cashplace");
     }
 
@@ -99,8 +84,7 @@ function getcash(z) {
         headers: headers,
     }).body.json();
     if (mm['code'] == 200) {
-        inform(2,"第"+z+"次领取现金",mm['data']['amount']);
-       //toast( "第" + z + "次领取现金:" + mm['data']['amount']);
+      toast( "第" + z + "次领取现金:" + mm['data']['amount']);
     }
 
 }
@@ -116,7 +100,7 @@ function 删除任务(A) {
 
     // 删除查找到的所有定时任务
     tasks.forEach(t => {
-        inform(1,"删除现金后台",$timers.removeTimedTask(t.id));
+        log("删除现金后台",$timers.removeTimedTask(t.id));
     });
 
 }
@@ -132,7 +116,7 @@ function award() {
         headers:headers,
     }).body.json();
     if (retaa['code'] == 200) {
-        inform(2,"初始现金:" + retaa['data']['amount']);
+        log("初始现金:" + retaa['data']['amount']);
 
     }
 
