@@ -199,7 +199,7 @@ function HeyTaptask() {
     var credit = ret.data.userReportInfoForm.reportDays;
    console.log("[签到]" + credit + "天");
     console.log("[积分]:"+ usercredit);
-
+/*
     for (var i = 0; i <= 6; i++) {
         if (ret['data']['userReportInfoForm']['gifts'][i]['today'] == true) {
             var signcredit = ret['data']['userReportInfoForm']['gifts'][i]['credits'];
@@ -213,7 +213,7 @@ function HeyTaptask() {
         }
     }
 
-
+*/
     
         //-------------------------------------------------------------------------------
 console.log("---------欢太商城签到页面浏览任务----------");
