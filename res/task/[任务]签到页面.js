@@ -2,11 +2,11 @@
 
 
 
-var UA = 
+var UA = "";
 
 
 
-var COOKIE=
+var COOKIE='';
 
 
 var headers= {
@@ -42,8 +42,6 @@ var header={
 
 
 
-//看这里
-//批量修改  report("日志", 改为  console.log(
 //感谢支持
 auto.waitFor()
 app.startActivity({
@@ -94,10 +92,10 @@ function HeyTapsign(xx, yy, zz) {
     }).body.json();
     var a = r.code;
     if (a == 200) {
-        report("日志","[签到成功]:" + r['data']['message'])
+        console.log("[签到成功]:" + r['data']['message'])
 
     } else {
-        report("日志","[签到异常]:" + r['errorMessage'])
+       console.log("[签到异常]:" + r['errorMessage'])
     }
 
 
@@ -117,10 +115,10 @@ function HeyTapsigna(xx) {
     }).body.json();
     var a = r.code;
     if (a == 200) {
-        report("日志","[签到成功]:" + r['data']['message'])
+        console.log("[签到成功]:" + r['data']['message'])
 
     } else {
-        report("日志","[签到异常]:" + r['errorMessage'])
+       console.log("[签到异常]:" + r['errorMessage'])
     }
 
 
@@ -163,9 +161,9 @@ function HeyTaptask() {
     }).body.json();
     if (temp['code'] == 200) {
 
-        report("日志","[登录帐号]:"+temp['data']['name']);
+        console.log("[登录帐号]:"+temp['data']['name']);
     } else {
-        report("日志",temp['msg']);
+       console.log(temp['msg']);
     }
 
 
@@ -199,8 +197,8 @@ function HeyTaptask() {
     log(ret);
     var usercredit = ret.data.userCredits;
     var credit = ret.data.userReportInfoForm.reportDays;
-    report("日志","[签到]" + credit + "天");
-    report("日志","[积分]:"+ usercredit);
+   console.log("[签到]" + credit + "天");
+    console.log("[积分]:"+ usercredit);
 
     for (var i = 0; i <= 6; i++) {
         if (ret['data']['userReportInfoForm']['gifts'][i]['today'] == true) {
@@ -218,62 +216,61 @@ function HeyTaptask() {
 
     
         //-------------------------------------------------------------------------------
-
-        report("日志","---------欢太商城签到页面浏览任务----------");
+console.log("---------欢太商城签到页面浏览任务----------");
         sleep(2000);
         //浏览商品
         var temp = http.get('https://msec.opposhop.cn/goods/v1/info/sku?skuId=3882&secKillRoundId=3056&cfId=', {
             "headers": headers,
         }).body.string();
-        report("日志","浏览任务中");
+       console.log("浏览任务中");
         sleep(2000);
         var temp = http.get('https://msec.opposhop.cn/goods/v1/info/sku?skuId=3753&secKillRoundId=3056&cfId=', {
             "headers": headers,
         }).body.string();
-        report("日志","浏览任务中");
+     console.log("浏览任务中");
         sleep(2000);
         var temp = http.get('https://msec.opposhop.cn/goods/v1/info/sku?skuId=3905&secKillRoundId=3056&cfId=', {
             "headers": headers,
         }).body.string();
-        report("日志","浏览任务中");
+       console.log("浏览任务中");
         sleep(2000);
         var temp = http.get('https://msec.opposhop.cn/goods/v1/info/sku?skuId=4740&secKillRoundId=3056&cfId=', {
             "headers": headers,
         }).body.string();
-        report("日志","浏览任务中");
+       console.log("浏览任务中");
         sleep(2000);
         var temp = http.get('https://msec.opposhop.cn/goods/v1/info/sku?skuId=20449&secKillRoundId=3056&cfId=', {
             "headers": headers,
         }).body.string();
-        report("日志","浏览任务中");
+      console.log("浏览任务中");
         sleep(2000);
         var temp = http.get('https://msec.opposhop.cn/goods/v1/info/sku?skuId=21459&secKillRoundId=3056&cfId=', {
             "headers": headers,
         }).body.string();
-        report("日志","浏览任务中");
+       console.log("浏览任务中");
         sleep(2000);
         var temp = http.get('https://msec.opposhop.cn/goods/v1/info/sku?skuId=3471&secKillRoundId=3056&cfId=', {
             "headers": headers,
         }).body.string();
-        report("日志","浏览任务中");
+       console.log("浏览任务中");
         sleep(2000);
         var temp = http.get('https://msec.opposhop.cn/goods/v1/info/sku?skuId=20417&secKillRoundId=3056&cfId=', {
             "headers": headers,
         }).body.string();
-        report("日志","浏览任务中");
+      console.log("浏览任务中");
         sleep(2000);
         var temp = http.get('https://msec.opposhop.cn/goods/v1/info/sku?skuId=20193&secKillRoundId=3056&cfId=', {
             "headers": headers,
         }).body.string();
-        report("日志","浏览任务中");
+        console.log("浏览任务中");
         sleep(2000);
         var temp = http.get('https://msec.opposhop.cn/goods/v1/info/sku?skuId=4108&secKillRoundId=3056&cfId=', {
             "headers": headers,
         }).body.string();
-        report("日志","浏览任务中");
+      console.log("浏览任务中");
 
         //-------------------------------------------------------------------------------
-        report("日志","----------领取浏览任务奖励--------");
+        console.log("----------领取浏览任务奖励--------");
         sleep(2000);
         //领取20积分奖励
         var url = "https://store.oppo.com/cn/oapi/credits/web/credits/cashingCredits";
@@ -289,10 +286,10 @@ function HeyTaptask() {
         var b = r.code;
         var z = r.errorMessage;
         if (b == "200") {
-            report("日志","成功领取20积分");
+         console.log("成功领取20积分");
 
         } else {
-            report("日志","[操作异常]" + z)
+           console.log("[操作异常]" + z)
         };
 
 
@@ -302,14 +299,14 @@ function HeyTaptask() {
 
         //-------------------------------------------------------------------------------
 
-        report("日志","--------欢太商城签到页面分享微信任务--------");
+        console.log("--------欢太商城签到页面分享微信任务--------");
         //分享到微信
         for (var a = 1; a <= 4; a++) {
             sleep(2000);
             var temp = http.get('https://msec.opposhop.cn/users/vi/creditsTask/pushTask?marking=daily_sharegoods', {
                 "headers": headers,
             }).body.string();
-            report("日志","分享任务中");
+           console.log("分享任务中");
 
 
 
@@ -317,7 +314,7 @@ function HeyTaptask() {
 
         //-------------------------------------------------------------------------------
 
-        report("日志","--------领取分享微信任务奖励--------");
+        console.log("--------领取分享微信任务奖励--------");
 
         sleep(2000);
         //领取20积分奖励
@@ -333,10 +330,10 @@ function HeyTaptask() {
         var b = r.code;
         var z = r.errorMessage;
         if (b == "200") {
-            report("日志","成功领取20积分");
+      console.log("成功领取20积分");
 
         } else {
-            report("日志","[操作异常]" + z)
+         console.log("[操作异常]" + z)
         };
 
 
