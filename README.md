@@ -44,6 +44,7 @@ Autojs 9.0.11
 如何不用重复在每个脚本里添加数据呢，autojs给我们的方法是有很多，我例举两个：
 1.  在项目里任何其中一个脚本中，创建一个本地数据库： var storage = storages.create("自定义名字");设ua和ck的值：var ua="";var ck = ""; 储存数据：storage.put("CK",ck)；storage.put("UA",ua);在每一个脚本的开头都设置这个变量，即输入var storage = storages.create("自定义名字")；然后取出保存的数据： var COOKIE=storage.get("CK"); var UA=storage.get("UA")
 2.  本地写入一个json文件,注意json格式, 方法 JSON.parse
+3.  定时任务是Autojs pro 的功能，不支持普通版。
 
 
 
