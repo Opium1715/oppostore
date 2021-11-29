@@ -1,5 +1,5 @@
 # <p align="center">oppostore</p>
-<p align="center">联系方式:959329050</P>
+<p align="center"></P>
 <p align="center">喜欢这个项目？可以在右上角给颗⭐！你的支持是我最大的动力😎！</P>
 
 ## 免责声明
